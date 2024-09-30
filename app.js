@@ -26,7 +26,7 @@ function taskComplete(event) {
 
 function addTask() {
     let txtVal = txt.value.trim();
-    if (txtVal === "") return; // Prevent adding empty tasks
+    if (txtVal === "") return;
 
     let lstItm = document.createElement("LI");
     let delBtn = document.createElement("BUTTON");
@@ -35,12 +35,10 @@ function addTask() {
     lstItm.classList.add("lst-itm");
     lstItm.textContent = txtVal;
 
-    // Fix: Use a function reference instead of calling the function immediately
     lstItm.addEventListener("click", taskComplete);
 
-    // Add delete functionality
     delBtn.addEventListener("click", function (e) {
-        e.stopPropagation(); // Prevent triggering taskComplete when clicking delete button
+        e.stopPropagation();
         lst.removeChild(lstItm);
     });
 
